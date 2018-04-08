@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        style(type='text/css').
+           form {
+                padding: 20px;
+            }
+            th {
+                border-bottom: 1px grey solid;
+            }
+
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css")
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+        script(src="https://use.fontawesome.com/releases/v5.0.9/js/all.js",integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl",crossorigin="anonymous")
+    body
+        header
+            nav.navbar.navbar-expand-lg.navbar-light.bg-light
+                a.navbar-brand(href='/todos') TODO LIST
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor03', aria-controls='navbarColor03', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarColor03.collapse.navbar-collapse
+        form(method='POST' action='/todos')
+            div
+                label Todo :
+                input(type='text' id='message' name='message')
+            button(type='submit') Envoyer

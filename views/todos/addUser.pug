@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        style(type='text/css').
+           body {
+                padding: 20px;
+            }
+            th {
+                border-bottom: 1px grey solid;   
+            }
+            tr th, tr td {
+                padding:5px;
+            }
+
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css")
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+        script(src="https://use.fontawesome.com/releases/v5.0.9/js/all.js",integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl",crossorigin="anonymous")
+        
+        title #{title}
+    body
+        header
+            h1 #{title}
+        form(method='POST')
+            div
+                label Name : 
+                input(type='text' id='name' name='name')
+            div
+                label Password : 
+                input(type='password' id='password' name='password')
+            button(type='submit') Envoyer

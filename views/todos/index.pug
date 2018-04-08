@@ -1,0 +1,52 @@
+doctype html
+html
+    head
+        style(type='text/css').
+           table {
+                margin: 20px;
+            }
+            th {
+                border-bottom: 1px grey solid;   
+            }
+            tr th, tr td {
+                padding:5px;
+            }
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/lux/bootstrap.min.css")
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+        script(src="https://use.fontawesome.com/releases/v5.0.9/js/all.js",integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl",crossorigin="anonymous")
+        script(src="./script.js")
+        title #{title}
+    body
+        header
+            nav.navbar.navbar-expand-lg.navbar-light.bg-light
+                a.navbar-brand(href='#') TODO LIST
+                button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor03', aria-controls='navbarColor03', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarColor03.collapse.navbar-collapse
+        table
+            thead
+            tbody
+                tr
+                    th
+                    th id
+                    th message
+                    th description
+                    th created at
+                    th updated at
+                each todo in todos
+                    tr(style="cursor: pointer;" onclick="window.location='/todos/"+todo.id+"';")
+                        td
+                            if(todo.completion == "done")
+                                a(href="#")
+                                    i.fas.fa-circle
+                            if(todo.completion == "undone")
+                                a(href="#")
+                                    i.far.fa-circle
+
+                        td #{todo.id}
+                        td #{todo.message}
+                        td #{todo.completion}
+                        td #{todo.createdAt}
+                        td #{todo.updatedAt}
+        a(href="/todos/add")
+            p add a todo
